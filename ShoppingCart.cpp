@@ -3,7 +3,15 @@
 
 using namespace std;
 
-ShoppingCart::ShopingCart() {
+ShoppingCart::ShoppingCart() {
   itemCount = 0;
   totalPrice = 0.0;
+}
+
+void ShoppingCart::AddItem(Item item) {
+  
+}
+
+void ShoppingCart::RemoveItem(Item item) {
+
 }
