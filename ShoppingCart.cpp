@@ -3,4 +3,7 @@
 
 using namespace std;
 
-
+ShoppingCart::ShopingCart() {
+  itemCount = 0;
+  totalPrice = 0.0;
+}
