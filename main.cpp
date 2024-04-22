@@ -1,3 +1,6 @@
+// https://github.com/cameronrsmu/zyLab-28.14 
+// Cameron Riley, Ava Everett
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
