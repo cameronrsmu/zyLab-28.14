@@ -3,22 +3,22 @@
 using namespace std;
 
 ShoppingCart::ShoppingCart() {
-    name = "";
-    date = "";
+    customerName = "";
+    currentDate = "";
 }
 
 ShoppingCart::ShoppingCart(string name, string date) {
-    this->name = name;
-    this->date = date;
+    this->customerName = customerName;
+    this->currentDate = currentDate;
 }
 
 
 string ShoppingCart::GetCustomerName() const {
-    return name;
+    return customerName;
 }
 
 string ShoppingCart::GetDate() const {
-    return date;
+    return currentDate;
 }
 
 void ShoppingCart::AddItem(const ItemToPurchase& item) {
@@ -68,7 +68,7 @@ double ShoppingCart::GetCostOfCart() const {
 }
 
 void ShoppingCart::PrintTotal() const {
-    cout << name << "'s Shopping Cart - " << date << endl;
+    cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
     if (cartItems.empty()) {
@@ -83,7 +83,7 @@ void ShoppingCart::PrintTotal() const {
 }
 
 void ShoppingCart::PrintDescriptions() const {
-    cout << name << "'s Shopping Cart - " << date << endl;
+    cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << endl << "Item Descriptions" << endl;
 
     if (cartItems.empty()) {
