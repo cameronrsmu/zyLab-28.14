@@ -7,15 +7,21 @@ using namespace std;
 
 #include "ShoppingCart.h"
 
-void PrintMenu() {
+void PrintMenu(ShoppingCart& theCart) {
    /* Type your code here */
-   cout << "MENU" << endl;
-   cout << "a - Add item to cart" << endl;
-   cout << "d - Remove item from cart" << endl;
-   cout << "c - Change item quantity" << endl;
-   cout << "i - Output items' descriptions" << endl;
-   cout << "o - Output shopping cart" << endl;
-   cout << "q - Quit" << endl;
+   char option = 'x';
+   while (option != 'q'){
+      cout << "MENU" << endl;
+      cout << "a - Add item to cart" << endl;
+      cout << "d - Remove item from cart" << endl;
+      cout << "c - Change item quantity" << endl;
+      cout << "i - Output items' descriptions" << endl;
+      cout << "o - Output shopping cart" << endl;
+      cout << "q - Quit" << endl;
+      cin >> option;
+      ExecuteMenu(option, theCart);
+   }
+   
    
 }
 
@@ -48,16 +54,23 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
       theCart.RemoveItem(oldItem);
    }
    if (option == c){
-      
+      string oldName;
+      int newQuan;
+      ItemToPurchase modItem;
+      cout << "CHANGE ITEM QUANTITY" << endl;
+      cout << "Enter the item name:" << endl;
+      getline(cin, oldName);
+      cout << "Enter the new quantity:" << endl;
+      cin >> newQuan;
+      modItem.SetName(oldName);
+      modItem.SetQuantity(newQuan);
+      theCart.ModifyItem(modItem);
    }
    if (option == i){
       theCart.PrintDescriptions();
    }
    if (option == o){
       theCart.PrintTotal();
-   }
-   if (option == q){
-      
    }
 }
 
@@ -72,5 +85,6 @@ int main() {
    cout << "Customer name: " << name << endl;
    cout << "Today's date: " << date << endl;
    ShoppingCart customerCart(name, date);
+   PrintMenu();
    return 0;
 }
