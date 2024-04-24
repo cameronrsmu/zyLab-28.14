@@ -68,7 +68,7 @@ double ShoppingCart::GetCostOfCart() const {
 }
 
 void ShoppingCart::PrintTotal() const {
-    cout << name << "'s Shopping Cart - " << currentDate << endl;
+    cout << name << "'s Shopping Cart - " << date << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
     if (cartItems.empty()) {
