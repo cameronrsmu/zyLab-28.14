@@ -1,17 +1,8 @@
 #include "ShoppingCart.h"
 #include <iostream>
-using namespace std;
 
-ShoppingCart::ShoppingCart() {
-    customerName = "";
-    currentDate = "";
-}
-
-ShoppingCart::ShoppingCart(string name, string date) {
-    this->customerName = customerName;
-    this->currentDate = currentDate;
-}
-
+ShoppingCart::ShoppingCart(string customerName, string date)
+    : customerName(customerName), currentDate(date) {}
 
 string ShoppingCart::GetCustomerName() const {
     return customerName;
