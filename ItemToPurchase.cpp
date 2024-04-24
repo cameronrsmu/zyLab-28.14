@@ -1,5 +1,6 @@
 #include "ItemToPurchase.h"
 #include <string>
+#include <iostream>
 using namespace std;
 
 //constructors
@@ -11,7 +12,7 @@ ItemToPurchase::ItemToPurchase(){
   itemQuantity = 0;
 }
 
-ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity = 0){
+ItemToPurchase::ItemToPurchase(string name, string description, int price, int quantity){
   itemName = name;
   itemDescription = description;
   itemPrice = price;
@@ -56,6 +57,3 @@ void ItemToPurchase::PrintItemCost(){
 void ItemToPurchase::PrintItemDescription(){
   cout << itemName << ": " << itemDescription << endl;
 }
-
-
-
