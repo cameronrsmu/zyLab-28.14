@@ -1,6 +1,6 @@
 #include "ShoppingCart.h"
 #include <iostream>
-using namespaace std;
+using namespace std;
 
 ShoppingCart::ShoppingCart() {
     name = "";
