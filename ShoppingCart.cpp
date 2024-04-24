@@ -1,5 +1,6 @@
 #include "ShoppingCart.h"
 #include <iostream>
+using namespace std;
 
 ShoppingCart::ShoppingCart(string customerName, string date)
     : customerName(customerName), currentDate(date) {}
