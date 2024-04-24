@@ -13,7 +13,7 @@ string ShoppingCart::GetDate() const {
     return currentDate;
 }
 
-void ShoppingCart::AddItem(const ItemToPurchase& item) {
+void ShoppingCart::AddItem(ItemToPurchase& item) {
     cartItems.push_back(item);
 }
 
@@ -31,7 +31,7 @@ void ShoppingCart::RemoveItem(string itemName) {
     }
 }
 
-void ShoppingCart::ModifyItem(const ItemToPurchase& item) {
+void ShoppingCart::ModifyItem(ItemToPurchase& item) {
     for (auto& it : cartItems) {
         if (it.GetName() == item.GetName()) {
             if (item.GetDescription() != "none") it.SetDescription(item.GetDescription());
@@ -43,7 +43,7 @@ void ShoppingCart::ModifyItem(const ItemToPurchase& item) {
     cout << "Item not found in cart. Nothing modified." << endl;
 }
 
-int ShoppingCart::GetNumItemsInCart() const {
+int ShoppingCart::GetNumItemsInCart() {
     int totalQuantity = 0;
     for (const auto& item : cartItems) {
         totalQuantity += item.GetQuantity();
@@ -51,7 +51,7 @@ int ShoppingCart::GetNumItemsInCart() const {
     return totalQuantity;
 }
 
-double ShoppingCart::GetCostOfCart() const {
+double ShoppingCart::GetCostOfCart() {
     double totalCost = 0;
     for (const auto& item : cartItems) {
         totalCost += item.GetQuantity() * item.GetPrice();
@@ -59,7 +59,7 @@ double ShoppingCart::GetCostOfCart() const {
     return totalCost;
 }
 
-void ShoppingCart::PrintTotal() const {
+void ShoppingCart::PrintTotal() {
     cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
@@ -74,7 +74,7 @@ void ShoppingCart::PrintTotal() const {
     cout << endl << "Total: $" << GetCostOfCart() << endl;
 }
 
-void ShoppingCart::PrintDescriptions() const {
+void ShoppingCart::PrintDescriptions() {
     cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << endl << "Item Descriptions" << endl;
 
