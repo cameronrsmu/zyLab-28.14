@@ -23,8 +23,10 @@ int main() {
 
     cout << endl << "Customer name: " << customerName << endl;
     cout << "Today's date: " << date << endl;
+    cout << endl;
 
     PrintMenu();
+    cout << endl;
     char menuOption;
     while (true) {
         cout << "Choose an option:" << endl;
@@ -35,19 +37,23 @@ int main() {
             break; // Quit the program
         }
         ExecuteMenu(menuOption, shoppingCart);
+        cout << endl;
+        PrintMenu();
+        cout << endl;
     }
 
     return 0;
 }
 
 void PrintMenu() {
-    cout << endl << "MENU" << endl; // the endl's here causes a test to fail. When removed that test will pass, but also breaks everythin elseg in the process
+    cout << "MENU" << endl; // the endl's here causes a test to fail. When removed that test will pass, but also breaks everythin elseg in the process
     cout << "a - Add item to cart" << endl;
     cout << "d - Remove item from cart" << endl;
     cout << "c - Change item quantity" << endl;
     cout << "i - Output items' descriptions" << endl;
     cout << "o - Output shopping cart" << endl;
-    cout << "q - Quit" << endl << endl; // endls also causes a test to fail, breaks everything when removed
+    cout << "q - Quit" << endl; // endls also causes a test to fail, breaks everything when removed
+  
 }
 
 void ExecuteMenu(char option, ShoppingCart& theCart) {
@@ -68,7 +74,6 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
 
         ItemToPurchase newItem(itemName, itemDesc, itemPrice, itemQty);
         theCart.AddItem(newItem);
-        PrintMenu();
         break;
     }
     case 'd': {
@@ -77,7 +82,6 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
         cout << "Enter name of item to remove:" << endl;
         getline(cin, itemName);
         theCart.RemoveItem(itemName);
-        PrintMenu();
         break;
     }
     case 'c': {
@@ -94,18 +98,16 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
         item.SetName(itemName);
         item.SetQuantity(newQty);
         theCart.ModifyItem(item);
-        PrintMenu();
         break;
     }
     case 'i':
         cout << "OUTPUT ITEMS' DESCRIPTIONS" << endl;
         theCart.PrintDescriptions();
-        PrintMenu();
         break;
     case 'o':
         cout << "OUTPUT SHOPPING CART" << endl;
         theCart.PrintTotal();
-        PrintMenu(); // Causes a test to fail, but when removed breaks everything else
+         // Causes a test to fail, but when removed breaks everything else
         break;
     default:
       break;
