@@ -1,9 +1,7 @@
 #include "ShoppingCart.h"
 #include <iostream>
-using namespace std;
 
-ShoppingCart::ShoppingCart(string customerName, string date)
-    : customerName(customerName), currentDate(date) {}
+ShoppingCart::ShoppingCart(string customerName, string date) : customerName(customerName), currentDate(date) {}
 
 string ShoppingCart::GetCustomerName() const {
     return customerName;
@@ -13,7 +11,7 @@ string ShoppingCart::GetDate() const {
     return currentDate;
 }
 
-void ShoppingCart::AddItem(ItemToPurchase& item) {
+void ShoppingCart::AddItem(const ItemToPurchase& item) {
     cartItems.push_back(item);
 }
 
@@ -31,7 +29,7 @@ void ShoppingCart::RemoveItem(string itemName) {
     }
 }
 
-void ShoppingCart::ModifyItem(ItemToPurchase& item) {
+void ShoppingCart::ModifyItem(const ItemToPurchase& item) {
     for (auto& it : cartItems) {
         if (it.GetName() == item.GetName()) {
             if (item.GetDescription() != "none") it.SetDescription(item.GetDescription());
@@ -43,7 +41,7 @@ void ShoppingCart::ModifyItem(ItemToPurchase& item) {
     cout << "Item not found in cart. Nothing modified." << endl;
 }
 
-int ShoppingCart::GetNumItemsInCart() {
+int ShoppingCart::GetNumItemsInCart() const {
     int totalQuantity = 0;
     for (const auto& item : cartItems) {
         totalQuantity += item.GetQuantity();
@@ -51,7 +49,7 @@ int ShoppingCart::GetNumItemsInCart() {
     return totalQuantity;
 }
 
-double ShoppingCart::GetCostOfCart() {
+double ShoppingCart::GetCostOfCart() const {
     double totalCost = 0;
     for (const auto& item : cartItems) {
         totalCost += item.GetQuantity() * item.GetPrice();
@@ -59,7 +57,7 @@ double ShoppingCart::GetCostOfCart() {
     return totalCost;
 }
 
-void ShoppingCart::PrintTotal() {
+void ShoppingCart::PrintTotal() const {
     cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << "Number of Items: " << GetNumItemsInCart() << endl << endl;
 
@@ -74,7 +72,7 @@ void ShoppingCart::PrintTotal() {
     cout << endl << "Total: $" << GetCostOfCart() << endl;
 }
 
-void ShoppingCart::PrintDescriptions() {
+void ShoppingCart::PrintDescriptions() const {
     cout << customerName << "'s Shopping Cart - " << currentDate << endl;
     cout << endl << "Item Descriptions" << endl;
 
