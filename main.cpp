@@ -1,7 +1,7 @@
 // https://github.com/cameronrsmu/zyLab-28.14 
 // Cameron Riley, Ava Everett
 
-// Changed if statement to switch statement, i'm honestly not sure if it's better. But with it i've gotten it to 29/31 points... I think those last two points are because it's a switch statement and I'm not sure how to fix it :C
+
 
 #include <iostream>
 #include "ShoppingCart.h"
@@ -37,22 +37,24 @@ int main() {
             break; // Quit the program
         }
         ExecuteMenu(menuOption, shoppingCart);
-        cout << endl;
-        PrintMenu();
-        cout << endl;
+        if (menuOption == 'a' || menuOption == 'd' || menuOption == 'c' || menuOption == 'i' || menuOption == 'o'){
+            cout << endl;
+            PrintMenu();
+            cout << endl;
+        }
     }
 
     return 0;
 }
 
 void PrintMenu() {
-    cout << "MENU" << endl; // the endl's here causes a test to fail. When removed that test will pass, but also breaks everythin elseg in the process
+    cout << "MENU" << endl;
     cout << "a - Add item to cart" << endl;
     cout << "d - Remove item from cart" << endl;
     cout << "c - Change item quantity" << endl;
     cout << "i - Output items' descriptions" << endl;
     cout << "o - Output shopping cart" << endl;
-    cout << "q - Quit" << endl; // endls also causes a test to fail, breaks everything when removed
+    cout << "q - Quit" << endl; 
   
 }
 
@@ -107,7 +109,7 @@ void ExecuteMenu(char option, ShoppingCart& theCart) {
     case 'o':
         cout << "OUTPUT SHOPPING CART" << endl;
         theCart.PrintTotal();
-         // Causes a test to fail, but when removed breaks everything else
+      
         break;
     default:
       break;
